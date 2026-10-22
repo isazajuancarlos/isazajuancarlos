@@ -60,6 +60,10 @@ Responsible, coordinated disclosure only, always through the vendor's official s
 
 `Rust` · `axum` · `SQLx` / `SQLite` · `maud` · `htmx` · zero-Node builds · single binary · offline-first · one database per instance.
 
+### Writing
+
+- **[They're not after your code](https://xiliux.com/en/blog/no-vienen-por-tu-codigo)** — why the big 2025–2026 attacks hit everything massive (npm, the AUR, the Snap Store, GitHub, WordPress), and where the truth of your software should live. More essays: **[escritos](https://github.com/isazajuancarlos/escritos)**.
+
 ### Reach me
 
 - 🌐 Portfolio & products: **[xiliux.com](https://xiliux.com)**
@@ -118,6 +122,10 @@ Solo divulgación responsable y coordinada, siempre por el canal oficial de segu
 ### Stack
 
 `Rust` · `axum` · `SQLx` / `SQLite` · `maud` · `htmx` · *builds* sin Node · binario único · *offline-first* · una base de datos por instancia.
+
+### Escritos
+
+- **[No vienen por tu código](https://xiliux.com/blog/no-vienen-por-tu-codigo)** — por qué los grandes ataques de 2025–2026 golpean todo lo masivo (npm, el AUR, la Snap Store, GitHub, WordPress), y dónde debe vivir la verdad de tu software. Más ensayos: **[escritos](https://github.com/isazajuancarlos/escritos)**.
 
 ### Contacto
 
