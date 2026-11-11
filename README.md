@@ -33,11 +33,26 @@ Two things set the work apart: it's **post-quantum from the core**, and it's **m
 
 ### Developer & agent-security tools
 
+- **[guecha](https://github.com/isazajuancarlos/guecha)** — **prompt-injection defense for AI coding agents**, as a Claude Code plugin. Two advisory hooks catch obfuscation (bidi / zero-width / Unicode-tag smuggling) and image-based exfiltration in tool output, and guard the agent's own config against injection persistence. Advisory, local, **MIT**. Sub-millisecond and measured; survived three rounds of adversarial review (every detector ships a paired red/green test).
+
 Tools I sell self-serve at **[xiliux.lemonsqueezy.com](https://xiliux.lemonsqueezy.com)** — single binary, offline, no telemetry:
 
-- **Xué** — MCP prompt-injection scanner. Catches obfuscation (bidi / zero-width / homoglyphs) and indirect injection in agent inputs.
+- **Xué** — the standalone **MCP** prompt-injection scanner (the paid, broader sibling of guecha). Catches obfuscation (bidi / zero-width / homoglyphs) and indirect injection in agent inputs.
 - **Chaquén** — MCP secret scanner. Finds credentials, tokens and keys before they're committed — including secrets deleted from the tree but still alive in git history.
-- **sin-caso-rojo** — diff coverage gap finder. Reverts each hunk and runs your suite: tells you exactly which lines nothing would catch if they broke.
+- **[sin-caso-rojo](https://github.com/isazajuancarlos/sin-caso-rojo)** — diff coverage gap finder. Reverts each hunk and runs your suite: tells you exactly which lines nothing would catch if they broke.
+
+More tooling: **[zaque](https://github.com/isazajuancarlos/zaque)** (boot-chain integrity) · **[autz](https://github.com/isazajuancarlos/autz)** (broken-access-control detection) · **[tequendama](https://github.com/isazajuancarlos/tequendama)** (data ingestion) · **[guardia-supresiones](https://github.com/isazajuancarlos/guardia-supresiones)** (honest `cargo-deny` suppressions) · **[escaner-android](https://github.com/isazajuancarlos/escaner-android)** / **[escaner-windows](https://github.com/isazajuancarlos/escaner-windows)** (security-hygiene scanners) · **[bochica](https://github.com/isazajuancarlos/bochica)** (Law 1581 compliance) · **[mindala](https://github.com/isazajuancarlos/mindala)** (technical intelligence).
+
+### Products
+
+Full-stack products — one binary, one database per instance, offline-first:
+
+- **[medico](https://github.com/isazajuancarlos/medico)** — health-information system for Colombian providers: clinical records, billing, and the RIPS → FEV-RIPS → MUV reporting chain (Res. 948/2026).
+- **[validador-rips](https://github.com/isazajuancarlos/validador-rips)** — pre-flight validator: *"upload your RIPS and I'll tell you what MinSalud would reject."* Free at **[rips.xiliux.com](https://rips.xiliux.com)**.
+- **[informes](https://github.com/isazajuancarlos/informes)** — general platform for structured reports, XBRL / iXBRL first-class.
+- **[chasqui](https://github.com/isazajuancarlos/chasqui)** — automated customer attention over WhatsApp, Instagram and Messenger.
+- **[bachue](https://github.com/isazajuancarlos/bachue)** — OpenID Connect identity provider.
+- **[winext4](https://github.com/isazajuancarlos/winext4)** — native ext4 for Windows, no WSL / no VM (in active development).
 
 ### Security research — public disclosures
 
@@ -45,7 +60,7 @@ Responsible, coordinated disclosure only, always through the vendor's official s
 
 - **OpenAM** — SAML 1.x signature confusion (**CWE-347**), advisory `GHSA-j56q-q3r3-hg7f`.
 - **midPoint / Evolveum** — broken access control (**CWE-862**), disclosed.
-- **Ethereum Lean roadmap** — differential and adversarial verification of the validator hash-based signatures (generalized XMSS) with my harness **Iraca**: canonicity, malleability, and the one-time-per-epoch invariant.
+- **Ethereum Lean roadmap** — differential and adversarial verification of the validator hash-based signatures (generalized XMSS) with my harness **[Iraca](https://github.com/isazajuancarlos/iraca)**: canonicity, malleability, and the one-time-per-epoch invariant.
 - Additional IDOR/BAC findings coordinated through HackerOne and Intigriti programs.
 
 ### Depth, measured
@@ -53,8 +68,8 @@ Responsible, coordinated disclosure only, always through the vendor's official s
 > If the code can't always be seen, the proof of depth has to stand on its own. These do.
 
 - **9.8× faster crypto CI** (598 s → 61 s) on quipu by optimizing dependency builds — with the control that proves it wasn't the compiler.
-- **Independent verification of NIST PQC** against reference implementations: ML-DSA, SLH-DSA and ML-KEM harnesses (Iraca-2/3/4) — tens of thousands of mutations, **zero** accepted; cross-language differential (Rust ↔ pq-crystals C) green byte-for-byte.
-- A deterministic alternative to expensive AI code review (sin-caso-rojo) that reproduced a real finding on its own.
+- **Independent verification of NIST PQC** against reference implementations — ML-DSA, SLH-DSA and ML-KEM harnesses (**[Iraca-2](https://github.com/isazajuancarlos/iraca-2)** / **[3](https://github.com/isazajuancarlos/iraca-3)** / **[4](https://github.com/isazajuancarlos/iraca-4)**): tens of thousands of mutations, **zero** accepted; four-way cross-language differential (Rust ↔ pq-crystals C ↔ libcrux ↔ AWS-LC) green byte-for-byte.
+- **guecha**: a prompt-injection detector that discriminates — 28 unit + 33 end-to-end paired tests, three rounds of adversarial review, sub-millisecond.
 
 ### Stack
 
@@ -96,11 +111,26 @@ Dos cosas distinguen el trabajo: es **post-cuántico desde el núcleo**, y está
 
 ### Herramientas para desarrolladores y seguridad de agentes
 
+- **[guecha](https://github.com/isazajuancarlos/guecha)** — **defensa anti-inyección para agentes de código con IA**, como plugin de Claude Code. Dos *hooks* de aviso cazan ofuscación (bidi / ancho-cero / *smuggling* por Tags Unicode) y exfiltración por imagen en la salida de herramientas, y protegen la propia config del agente contra la persistencia de una inyección. Advisory, local, **MIT**. Sub-milisegundo y medido; sobrevivió tres rondas de revisión adversaria (cada detector trae su par de pruebas rojo/verde).
+
 Herramientas que vendo en autoservicio en **[xiliux.lemonsqueezy.com](https://xiliux.lemonsqueezy.com)** — binario único, offline, sin telemetría:
 
-- **Xué** — escáner de inyección de *prompts* por MCP. Caza ofuscación (bidi / ancho-cero / homóglifos) e inyección indirecta en las entradas de un agente.
+- **Xué** — el escáner de inyección de *prompts* por **MCP** (el hermano de pago, más amplio, de guecha). Caza ofuscación (bidi / ancho-cero / homóglifos) e inyección indirecta en las entradas de un agente.
 - **Chaquén** — escáner de secretos por MCP. Encuentra credenciales, tokens y llaves antes de que se suban — incluidos los secretos borrados del árbol pero vivos en la historia de git.
-- **sin-caso-rojo** — detector de huecos de cobertura en un diff. Revierte cada *hunk* y corre tu banco de pruebas: te dice exactamente qué líneas no vigilaría nadie si se rompieran.
+- **[sin-caso-rojo](https://github.com/isazajuancarlos/sin-caso-rojo)** — detector de huecos de cobertura en un diff. Revierte cada *hunk* y corre tu banco de pruebas: te dice exactamente qué líneas no vigilaría nadie si se rompieran.
+
+Más herramientas: **[zaque](https://github.com/isazajuancarlos/zaque)** (integridad de arranque) · **[autz](https://github.com/isazajuancarlos/autz)** (detección de control de acceso roto) · **[tequendama](https://github.com/isazajuancarlos/tequendama)** (ingestión de datos) · **[guardia-supresiones](https://github.com/isazajuancarlos/guardia-supresiones)** (supresiones honestas de `cargo-deny`) · **[escaner-android](https://github.com/isazajuancarlos/escaner-android)** / **[escaner-windows](https://github.com/isazajuancarlos/escaner-windows)** (escáneres de higiene de seguridad) · **[bochica](https://github.com/isazajuancarlos/bochica)** (cumplimiento Ley 1581) · **[mindala](https://github.com/isazajuancarlos/mindala)** (inteligencia técnica).
+
+### Productos
+
+Productos full-stack — un binario, una base por instancia, *offline-first*:
+
+- **[medico](https://github.com/isazajuancarlos/medico)** — sistema de información para prestadores de salud en Colombia: historia clínica, facturación y la cadena RIPS → FEV-RIPS → MUV (Res. 948/2026).
+- **[validador-rips](https://github.com/isazajuancarlos/validador-rips)** — validador de pre-vuelo: *«sube tu RIPS y te digo qué rechazaría MinSalud».* Gratis en **[rips.xiliux.com](https://rips.xiliux.com)**.
+- **[informes](https://github.com/isazajuancarlos/informes)** — plataforma general de informes estructurados, con XBRL / iXBRL de primera clase.
+- **[chasqui](https://github.com/isazajuancarlos/chasqui)** — atención automatizada por WhatsApp, Instagram y Messenger.
+- **[bachue](https://github.com/isazajuancarlos/bachue)** — proveedor de identidad OpenID Connect.
+- **[winext4](https://github.com/isazajuancarlos/winext4)** — ext4 nativo para Windows, sin WSL / sin VM (en desarrollo activo).
 
 ### Investigación de seguridad — divulgaciones públicas
 
@@ -108,7 +138,7 @@ Solo divulgación responsable y coordinada, siempre por el canal oficial de segu
 
 - **OpenAM** — confusión de firma SAML 1.x (**CWE-347**), aviso `GHSA-j56q-q3r3-hg7f`.
 - **midPoint / Evolveum** — control de acceso roto (**CWE-862**), divulgado.
-- **Lean roadmap de Ethereum** — verificación diferencial y adversarial de las firmas hash-based del validador (XMSS generalizado) con mi arnés **Iraca**: canonicidad, *malleability* e invariante de un-uso-por-epoch.
+- **Lean roadmap de Ethereum** — verificación diferencial y adversarial de las firmas hash-based del validador (XMSS generalizado) con mi arnés **[Iraca](https://github.com/isazajuancarlos/iraca)**: canonicidad, *malleability* e invariante de un-uso-por-epoch.
 - Hallazgos adicionales de IDOR/BAC coordinados por programas de HackerOne e Intigriti.
 
 ### Profundidad, medida
@@ -116,8 +146,8 @@ Solo divulgación responsable y coordinada, siempre por el canal oficial de segu
 > Si el código no siempre puede verse, la prueba de profundidad tiene que sostenerse sola. Estas lo hacen.
 
 - **CI de cripto 9,8× más rápido** (598 s → 61 s) en quipu optimizando la compilación de dependencias — con el control que prueba que no fue el compilador.
-- **Verificación independiente del PQC del NIST** contra implementaciones de referencia: arneses de ML-DSA, SLH-DSA y ML-KEM (Iraca-2/3/4) — decenas de miles de mutaciones, **cero** aceptadas; diferencial entre lenguajes (Rust ↔ C de pq-crystals) verde byte a byte.
-- Una alternativa determinista a la revisión de código cara con IA (sin-caso-rojo) que reprodujo un hallazgo real por sí sola.
+- **Verificación independiente del PQC del NIST** contra implementaciones de referencia — arneses de ML-DSA, SLH-DSA y ML-KEM (**[Iraca-2](https://github.com/isazajuancarlos/iraca-2)** / **[3](https://github.com/isazajuancarlos/iraca-3)** / **[4](https://github.com/isazajuancarlos/iraca-4)**): decenas de miles de mutaciones, **cero** aceptadas; diferencial de cuatro vías entre lenguajes (Rust ↔ C de pq-crystals ↔ libcrux ↔ AWS-LC) verde byte a byte.
+- **guecha**: un detector de inyección de *prompts* que discrimina — 28 pruebas unitarias + 33 de extremo a extremo pareadas, tres rondas de revisión adversaria, sub-milisegundo.
 
 ### Stack
 
